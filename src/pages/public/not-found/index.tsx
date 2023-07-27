@@ -1,5 +1,9 @@
+import NotFound from "../../../components/not-found";
+
 export default function NotFoundPage() {
-  return (
-    <div>Página não encontrada</div>
-  )
+    return (
+        <>
+            <NotFound />
+        </>
+    );
 }
