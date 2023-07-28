@@ -4,10 +4,10 @@ type AuxProps = {
     children: React.ReactNode;
 }
 
-export default function PrivateLayout(props: AuxProps) {
+export default function PrivateLayout({ children }: AuxProps) {
     return (
         <>
-            {props.children}
+            {children}
         </>
     );
 } 

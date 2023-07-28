@@ -5,5 +5,6 @@ export type StyledComponentProps = {
         textColor: string;
         primaryColor: string;
         primaryColorHover: string;
+        textMenuColor: string;
     }
 }

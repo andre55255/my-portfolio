@@ -10,6 +10,7 @@ import { routesPages } from "../helpers/routes-pages";
 import { AuthLayout } from "./auth-layout";
 
 import NotFoundPage from "../pages/public/not-found/index";
+import MainPage from "../pages/public/main/index";
 
 const Router = createBrowserRouter(
     createRoutesFromElements(
@@ -19,7 +20,7 @@ const Router = createBrowserRouter(
                 
                 {/* Public routes */}
                 <Route element={<PublicRoute />}>
-
+                    <Route path={routesPages.main} element={<MainPage />} />
                 </Route>
 
                 {/* Protected routes */}

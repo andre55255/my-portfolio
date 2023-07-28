@@ -1,9 +1,10 @@
 import { createGlobalStyle } from "styled-components";
+import fontInter from "./fonts/Inter-Regular.ttf";
 
 export const GlobalStyles = createGlobalStyle`
     @font-face {
         font-family: "Inter";
-        src: url("./fonts/Inter-Regular.ttf");
+        src: url(${fontInter});
     }
 
     * {
@@ -36,8 +37,9 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
+    padding-top: 2rem;
+    padding-left: 4rem;
     }
 
     a {
