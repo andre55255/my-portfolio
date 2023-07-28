@@ -43,16 +43,7 @@ export const GlobalStyles = createGlobalStyle`
         padding-top: 2rem;
         padding-left: 4rem;
         overflow: hidden;
-    }
-
-    body.show-nav {
-        transform: translateX(300px);
-    }
-
-    @media all and (max-width: 350px) {
-        body.show-nav {
-          transform: translateX(calc(100% - 50px));
-        }
+        background-color: ${props => props.theme.bodyBackground};
     }
 
     a {

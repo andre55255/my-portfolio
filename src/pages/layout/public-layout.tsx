@@ -8,8 +8,12 @@ type AuxProps = {
 export default function PublicLayout({ children }: AuxProps) {
     return (
         <>
-            <Navbar />
-            {children}
+            <header>
+                <Navbar />
+            </header>
+            <body>
+                {children}
+            </body>
         </>
     );
 }

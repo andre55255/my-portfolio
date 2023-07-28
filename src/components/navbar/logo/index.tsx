@@ -1,10 +1,18 @@
 import { LogoStyled } from "./styled";
-import logoImg from "../../../assets/logo-ad-cutted.png";
+import logoImgLight from "../../../assets/logo-ad-cutted.png";
+import logoImgDark from "../../../assets/logo-ad-dark-cutted.png";
+import { useTheme } from "../../../hooks/use-theme";
 
 export default function Logo() {
+    const { theme } = useTheme();
+
     return (
         <LogoStyled>
-            <img src={logoImg} alt="logo" />
+            {theme === "light" ? (
+                <img src={logoImgLight} alt="logo" />
+            ) : (
+                <img src={logoImgDark} alt="logo" />
+            )}
         </LogoStyled>
     );
 }
