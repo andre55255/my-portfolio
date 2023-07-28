@@ -7,7 +7,8 @@ export const lightTheme = {
     primaryColor: "#1C5D99", // Cor primária de botão
     primaryColorHover: "#1C5D99bb", // Cor primária de hover de botão
 
-    textMenuColor: "#6B6D76" // Cor do texto do menu
+    textMenuColor: "#6B6D76", // Cor do texto do menu
+    colorHamburgerIcon: "#000" // Cor do menu hambúrger do responsive layout
 };
 
 export const darkTheme = {
@@ -19,5 +20,6 @@ export const darkTheme = {
     primaryColor: "#1C5D99", // Cor primária de botão
     primaryColorHover: "#1C5D99bb", // Cor primária de hover de botão
 
-    textMenuColor: "#6B6D76" // Cor do texto do menu
+    textMenuColor: "#6B6D76", // Cor do texto do menu
+    colorHamburgericon: "#6B6D76" // Cor do menu hambúrger do responsive layout
 };

@@ -1,18 +1,24 @@
-import { styled } from "styled-components";
-import { StyledComponentProps } from "../../../types/styled-component-props";
+import { GITHUB_LINK, LINKEDIN_LINK } from "../../../helpers/constants";
+import { useTheme } from "../../../hooks/use-theme";
+import SocialIconItem from "../social-icon-item";
+import SocialIconsStyled from "./styled";
+import { FaGithub, FaLinkedin, FaMoon } from "react-icons/fa";
 
-const SocialIcons = styled.div<StyledComponentProps>`
-    display: flex;
-    margin-right: 4rem;
-
-    a {
-        margin-left: 1rem;
-    }
-
-    a > .ico {
-        color: ${(props) => props.theme.textMenuColor};
-        font-size: 1.5rem;
-    }
-`;
-
-export default SocialIcons;
+export default function SocialIcons() {
+    const { themeToggler } = useTheme();
+    return (
+        <SocialIconsStyled>
+            <SocialIconItem
+                link={GITHUB_LINK}
+                Icon={<FaGithub className="ico" />}
+            />
+            <SocialIconItem
+                link={LINKEDIN_LINK}
+                Icon={<FaLinkedin className="ico" />}
+            />
+            <SocialIconItem
+                Icon={<FaMoon className="ico" onClick={themeToggler} />}
+            />
+        </SocialIconsStyled>
+    );
+}
