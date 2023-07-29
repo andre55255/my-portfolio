@@ -3,7 +3,7 @@ import { StyledComponentProps } from "../../../types/styled-component-props";
 
 export const MenuContainer = styled.div<StyledComponentProps>`
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;

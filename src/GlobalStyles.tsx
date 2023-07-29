@@ -7,6 +7,22 @@ export const GlobalStyles = createGlobalStyle`
         src: url(${fontInter});
     }
 
+    /* Estiliza a barra de rolagem */
+    ::-webkit-scrollbar {
+        width: 8px; /* Largura da barra de rolagem */
+    }
+
+    /* Estiliza o polegar da barra de rolagem */
+    ::-webkit-scrollbar-thumb {
+        background-color: ${props => props.theme.primaryColor}; /* Cor do polegar da barra de rolagem */
+        border-radius: .2rem; /* Borda arredondada do polegar */
+    }
+
+    /* Estiliza a pista da barra de rolagem (opcional) */
+    ::-webkit-scrollbar-track {
+        background-color: #f0f0f0; /* Cor da pista da barra de rolagem */
+    }
+
     * {
         font-family: Inter, sans-serif;
         transition: 0.25s ease-in-out;
@@ -42,8 +58,7 @@ export const GlobalStyles = createGlobalStyle`
         font-size: 1rem;
         padding-top: 2rem;
         padding-left: 4rem;
-        overflow: hidden;
-        background-color: ${props => props.theme.bodyBackground};
+        background-color: ${(props) => props.theme.bodyBackground};
     }
 
     a {
@@ -69,6 +84,5 @@ export const GlobalStyles = createGlobalStyle`
     img {
         display: block;
         max-width: 100%;
-        height: auto;
     }
 `;

@@ -9,7 +9,7 @@ interface DrawerProps {
 
 const Drawer = styled.div<DrawerProps>`
     width: 300px;
-    height: 100vh;
+    min-height: 100vh;
     background-color: ${props => props.theme.bodyBackground};
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     position: fixed;
