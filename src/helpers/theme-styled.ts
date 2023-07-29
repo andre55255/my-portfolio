@@ -12,7 +12,11 @@ export const lightTheme = {
     colorHamburgerIcon: "#000", // Cor do menu hambúrger do responsive layout
     
     colorIconStacks: "#1C5D99bb", // Cor dos icones das stacks
-    colorTitleCardProject: "#1a1a1a" // Cor do título do card de projeto
+    colorTitleCardProject: "#1a1a1a", // Cor do título do card de projeto
+
+    colorLabelFormContact: "#093E70", // Cor do label do formulário de contato
+    colorInputFormContact: "#C1D2E7", // Cor do input do formulário do contato
+    colorTextInputFormContact: "#1a1a1a", // Cor das letras do input do formulário de contato
 };
 
 export const darkTheme = {
@@ -29,5 +33,9 @@ export const darkTheme = {
     colorHamburgericon: "#6B6D76", // Cor do menu hambúrger do responsive layout
     
     colorIconStacks: "#fff", // Cor dos icones das stacks
-    colorTitleCardProject: "#e0e0e0" // Cor do título do card de projeto
+    colorTitleCardProject: "#e0e0e0", // Cor do título do card de projeto
+
+    colorLabelFormContact: "#6B6D76", // Cor do label do formulário de contato
+    colorInputFormContact: "#2c2c2c", // Cor do input do formulário do contato
+    colorTextInputFormContact: "#6B6D76", // Cor das letras do input do formulário de contato
 };

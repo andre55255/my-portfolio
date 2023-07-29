@@ -6,7 +6,7 @@ import NavbarFullScreen from "./navbar-full-screen";
 export const Navbar = () => {
     const { windowWidth } = useResize();
 
-    if (windowWidth > 768) {
+    if (windowWidth > 900) {
         return <NavbarFullScreen />
     } else {
         return <NavbarDrawer />

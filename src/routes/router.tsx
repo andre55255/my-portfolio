@@ -12,6 +12,7 @@ import { AuthLayout } from "./auth-layout";
 import NotFoundPage from "../pages/public/not-found/index";
 import MainPage from "../pages/public/main/index";
 import AboutPage from "../pages/public/about";
+import ContactPage from "../pages/public/contact";
 
 const Router = createBrowserRouter(
     createRoutesFromElements(
@@ -23,6 +24,7 @@ const Router = createBrowserRouter(
                 <Route element={<PublicRoute />}>
                     <Route path={routesPages.main} element={<MainPage />} />
                     <Route path={routesPages.about} element={<AboutPage />} />
+                    <Route path={routesPages.contact} element={<ContactPage />} />
                 </Route>
 
                 {/* Protected routes */}

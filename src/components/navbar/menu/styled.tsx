@@ -3,6 +3,7 @@ import { StyledComponentProps } from "../../../types/styled-component-props";
 
 const MenuStyled = styled.ul<StyledComponentProps>`
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
 
     li {

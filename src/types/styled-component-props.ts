@@ -10,5 +10,8 @@ export type StyledComponentProps = {
         colorIconStacks: string;
         colorTitleCardProject: string;
         primaryTextColorBtn: string;
-    }
-}
+        colorLabelFormContact: string;
+        colorInputFormContact: string;
+        colorTextInputFormContact: string;
+    };
+};

@@ -56,9 +56,13 @@ export const GlobalStyles = createGlobalStyle`
 
     body {
         font-size: 1rem;
-        padding-top: 2rem;
-        padding-left: 4rem;
         background-color: ${(props) => props.theme.bodyBackground};
+        padding-top: 2rem;
+        padding-left: 1rem;
+
+        @media (min-width: 900px) {
+            padding-left: 4rem;
+        }
     }
 
     a {

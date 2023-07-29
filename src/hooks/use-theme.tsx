@@ -11,7 +11,7 @@ interface UseThemeProps {
 export function useTheme(): UseThemeProps {
     const itemLocalStorage = localStorage.getItem(THEME_APPLICATION);
     if (!itemLocalStorage)
-        localStorage.setItem(THEME_APPLICATION, "light");
+        localStorage.setItem(THEME_APPLICATION, "dark");
     
     const newMode = !itemLocalStorage ? 
                     "light" :

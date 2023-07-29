@@ -8,7 +8,7 @@ const ListStacks = styled.ul<StyledComponentProps>`
     gap: 4rem;
     list-style: none;
     padding: 0;
-    max-width: 80vw;
+    max-width: 1300px;
     margin: 0 auto;
 `;
 
