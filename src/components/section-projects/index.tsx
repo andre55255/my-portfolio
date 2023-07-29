@@ -1,3 +1,4 @@
+import { routesAnchor } from "../../helpers/routes-pages";
 import { ProjectListItem } from "../../types/project-list-item";
 import ContainerSectionStacks from "../section-stacks/container-section-stacks";
 import ListStacks from "../section-stacks/list-stacks";
@@ -41,7 +42,7 @@ export default function SectionProjects({
 
     return (
         <>
-            <ContainerSectionStacks>
+            <ContainerSectionStacks id={routesAnchor.projects}>
                 <h2>Projetos</h2>
                 <p>Coisas que já fiz até agora</p>
                 <ListStacks>

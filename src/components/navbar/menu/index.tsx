@@ -1,22 +1,15 @@
-import { styled } from "styled-components";
-import { StyledComponentProps } from "../../../types/styled-component-props";
+import { routesAnchor, routesPages } from "../../../helpers/routes-pages";
+import MenuItem from "../menu-item";
+import MenuStyled from "./styled";
 
-const Menu = styled.ul<StyledComponentProps>`
-    display: flex;
-    list-style: none;
-
-    li {
-        margin-right: 1.5rem;
-
-        &:last-child {
-            margin-right: 0;
-        }
-
-        a {
-            color: ${(props) => props.theme.textMenuColor};
-            text-decoration: none;
-        }
-    }
-`;
-
-export default Menu;
+export default function Menu() {
+    return (
+        <MenuStyled>
+            <MenuItem anchor={routesAnchor.home}>Home</MenuItem>
+            <MenuItem route={routesPages.about}>Sobre</MenuItem>
+            <MenuItem anchor={routesAnchor.stacks}>Stacks</MenuItem>
+            <MenuItem anchor={routesAnchor.projects}>Projetos</MenuItem>
+            <MenuItem route={routesPages.contact}>Contato</MenuItem>
+        </MenuStyled>
+    );
+}

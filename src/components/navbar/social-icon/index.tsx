@@ -4,7 +4,13 @@ import SocialIconItem from "../social-icon-item";
 import SocialIconsStyled from "./styled";
 import { FaGithub, FaLinkedin, FaMoon, FaSun } from "react-icons/fa";
 
-export default function SocialIcons() {
+interface SocialIconsProps {
+    isThemeIconNotRender?: boolean;
+}
+
+export default function SocialIcons({
+    isThemeIconNotRender,
+}: SocialIconsProps) {
     const { themeToggler, theme } = useTheme();
 
     const handleThemeToggle = () => {
@@ -22,17 +28,17 @@ export default function SocialIcons() {
                 link={LINKEDIN_LINK}
                 Icon={<FaLinkedin className="ico" />}
             />
-            {theme === "light" ? (
+            {!isThemeIconNotRender && theme === "light" ? (
                 <SocialIconItem
                     Icon={
                         <FaMoon className="ico" onClick={handleThemeToggle} />
                     }
                 />
-            ) : (
+            ) : !isThemeIconNotRender && theme === "dark" ? (
                 <SocialIconItem
                     Icon={<FaSun className="ico" onClick={handleThemeToggle} />}
                 />
-            )}
+            ) : <></>}
         </SocialIconsStyled>
     );
 }

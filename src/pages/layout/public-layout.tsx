@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar } from "../../components/navbar";
+import Footer from "../../components/footer";
 
 type AuxProps = {
     children: React.ReactNode;
@@ -14,6 +15,9 @@ export default function PublicLayout({ children }: AuxProps) {
             <body>
                 {children}
             </body>
+            <footer>
+                <Footer />
+            </footer>
         </>
     );
 }

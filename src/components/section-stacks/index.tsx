@@ -2,6 +2,7 @@ import ContainerSectionStacks from "./container-section-stacks";
 import ListStacks from "./list-stacks";
 import StackItem from "./stack-item";
 import { StackListItem } from "../../types/stacks-list-item";
+import { routesAnchor } from "../../helpers/routes-pages";
 
 interface AuxPropsSectionStacks {
     list: StackListItem[];
@@ -9,7 +10,7 @@ interface AuxPropsSectionStacks {
 
 export default function SectionStacks({ list }: AuxPropsSectionStacks) {
     return (
-        <ContainerSectionStacks>
+        <ContainerSectionStacks id={routesAnchor.stacks}>
             <h2>Minhas stacks</h2>
             <p>Tecnologias que eu trabalho frequentemente</p>
             <ListStacks>
