@@ -3,8 +3,8 @@ import { StyledComponentProps } from "../../../types/styled-component-props";
 
 const FormGeometry = styled.div<StyledComponentProps>`
     @media (min-width: 768px) {
-        width: 300px;
-        height: 300px;
+        width: 200px;
+        height: 200px;
         background-color: #8406d6;
         margin-left: 5rem;
         margin-right: 4rem;

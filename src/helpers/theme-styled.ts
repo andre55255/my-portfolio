@@ -6,11 +6,13 @@ export const lightTheme = {
 
     primaryColor: "#1C5D99", // Cor primária de botão
     primaryColorHover: "#1C5D99bb", // Cor primária de hover de botão
-
+    primaryTextColorBtn: "#e0e0e0", //Cor de texto de botão
+    
     textMenuColor: "#6B6D76", // Cor do texto do menu
     colorHamburgerIcon: "#000", // Cor do menu hambúrger do responsive layout
-
-    colorIconStacks: "#1C5D99bb" // Cor dos icones das stacks
+    
+    colorIconStacks: "#1C5D99bb", // Cor dos icones das stacks
+    colorTitleCardProject: "#1a1a1a" // Cor do título do card de projeto
 };
 
 export const darkTheme = {
@@ -21,9 +23,11 @@ export const darkTheme = {
     
     primaryColor: "#1C5D99", // Cor primária de botão
     primaryColorHover: "#1C5D99bb", // Cor primária de hover de botão
+    primaryTextColorBtn: "#e0e0e0", //Cor de texto de botão
     
     textMenuColor: "#6B6D76", // Cor do texto do menu
     colorHamburgericon: "#6B6D76", // Cor do menu hambúrger do responsive layout
-
-    colorIconStacks: "#fff" // Cor dos icones das stacks
+    
+    colorIconStacks: "#fff", // Cor dos icones das stacks
+    colorTitleCardProject: "#e0e0e0" // Cor do título do card de projeto
 };

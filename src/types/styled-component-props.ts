@@ -8,5 +8,7 @@ export type StyledComponentProps = {
         textMenuColor: string;
         colorHamburgerIcon: string;
         colorIconStacks: string;
+        colorTitleCardProject: string;
+        primaryTextColorBtn: string;
     }
 }
