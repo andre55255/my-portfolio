@@ -15,8 +15,13 @@ export default function SectionStacks({ list }: AuxPropsSectionStacks) {
             <p>Tecnologias que eu trabalho frequentemente</p>
             <ListStacks>
                 {list.map((item) => (
-                    <StackItem key={`${item.link}@${item.name}`} colorStack={item.color}>
-                        <a href={item.link}>{item.icon}</a>
+                    <StackItem
+                        key={`${item.link}@${item.name}`}
+                        colorStack={item.color}
+                    >
+                        <a href={item.link} target="_blank" rel="noreferrer">
+                            <img src={item.linkImg} alt={item.name} />
+                        </a>
                         <span>{item.name}</span>
                     </StackItem>
                 ))}

@@ -21,6 +21,10 @@ const StackItem = styled.li<StackItemProps>`
         text-align: center;
         color: ${props => props.colorStack ?? props.theme.textColor};
     }
+
+    img {
+        width: 8rem;
+    }
     
     svg {
         font-size: 5rem;

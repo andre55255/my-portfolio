@@ -1,6 +1,6 @@
 export type StackListItem = {
-    icon: JSX.Element,
     link: string;
+    linkImg: string;
     name: string;
     color?: string;
 }

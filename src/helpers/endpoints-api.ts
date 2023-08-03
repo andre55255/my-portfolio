@@ -3,6 +3,7 @@ export const endpointsApi = {
         experiencesEducation: "/PublicPage/GetMyExperiencesEducation",
         experiencesWork: "/PublicPage/GetMyExperiencesWork",
         getPortfolio: "/PublicPage/GetPortfolio",
-        projects: "/PublicPage/GetMyProjects"
+        projects: "/PublicPage/GetMyProjects",
+        stacks: "/PublicPage/GetStacks"
     }
 }
