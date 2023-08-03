@@ -25,7 +25,7 @@ export default function CardProject({ item }: CardProjectProps) {
             <DescriptionCard>{item.description}</DescriptionCard>
             <TechsCard>
                 <span>Techs:</span>
-                {item.techs}
+                {item.techs.join(", ")}
             </TechsCard>
             <ContainerFooter>
                 {item.linkPreview && (

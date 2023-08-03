@@ -1,79 +1,47 @@
 import SectionAbout from "../../../components/section-about";
 import SectionMyEducation from "../../../components/section-my-education";
 import SectionMyWorks from "../../../components/section-my-works";
+import { GetExperiencesEducation, parsedObjectEducationReturn } from "../../../services/experiences-education/get-experiences-education-data";
+import { GetExperiencesWork, parsedObjectWorkReturn } from "../../../services/experiences-work/get-experiences-work-data";
 import { MyWorksListItem } from "../../../types/my-works-list-item";
+import { useState, useEffect } from "react";
 
 export default function AboutPage() {
-    const descriptionAbout =
-        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.";
+    const [works, setWorks] = useState<MyWorksListItem[]>([]);
+    const [educations, setEducations] = useState<MyWorksListItem[]>([]);
 
-    const listMyWorks: MyWorksListItem[] = [
-        {
-            title: "Cargo",
-            journey: "Integral",
-            enterpriseName: "Empresa",
-            enterpriseLocalization: "Localização TP",
-            enterpriseStartDate: "Ago 2022",
-            enterpriseEndDate: "Ago 2023"
-        },
-        {
-            title: "Cargo",
-            journey: "Integral",
-            enterpriseName: "Empresa",
-            enterpriseLocalization: "Localização TP",
-            enterpriseStartDate: "Ago 2022",
-            enterpriseEndDate: "Ago 2023"
-        },
-        {
-            title: "Cargo",
-            journey: "Integral",
-            enterpriseName: "Empresa",
-            enterpriseLocalization: "Localização TP",
-            enterpriseStartDate: "Ago 2022",
-            enterpriseEndDate: "Ago 2023"
-        },
-        {
-            title: "Cargo",
-            journey: "Integral",
-            enterpriseName: "Empresa",
-            enterpriseLocalization: "Localização TP",
-            enterpriseStartDate: "Ago 2022",
-            enterpriseEndDate: "Ago 2023"
-        },
-        {
-            title: "Cargo",
-            journey: "Integral",
-            enterpriseName: "Empresa",
-            enterpriseLocalization: "Localização TP",
-            enterpriseStartDate: "Ago 2022",
-            enterpriseEndDate: "Ago 2023"
-        },
-        {
-            title: "Cargo",
-            journey: "Integral",
-            enterpriseName: "Empresa",
-            enterpriseLocalization: "Localização TP",
-            enterpriseStartDate: "Ago 2022",
-            enterpriseEndDate: "Ago 2023"
-        },
-    ];
+    const handleFetch = async () => {
+        const [resultExperienceWorks, resultExperienceEducation] = await Promise.all([
+            GetExperiencesWork(),
+            GetExperiencesEducation()
+        ]);
 
-    const listMyEducation: MyWorksListItem[] = [
-        {
-            title: "Faculdade",
-            journey: "Em progresso",
-            enterpriseName: "Instituição",
-            enterpriseLocalization: "Localização TR",
-            enterpriseStartDate: "Jan 2018",
-            enterpriseEndDate: "Dez 2023"
+        if (resultExperienceWorks.success && resultExperienceWorks.object) {
+            const parseObj = parsedObjectWorkReturn(resultExperienceWorks.object!!);
+            setWorks(parseObj);
         }
-    ];
+        else {
+            alert(resultExperienceWorks.message);
+        }
+
+        if (resultExperienceEducation.success && resultExperienceEducation.object) {
+            const parseObj = parsedObjectEducationReturn(resultExperienceEducation.object!!);
+            setEducations(parseObj);
+        }
+        else {
+            alert(resultExperienceEducation.message);
+        }
+    };
+
+    useEffect(() => {
+        handleFetch();
+    }, []);
 
     return (
         <>
-            <SectionAbout description={descriptionAbout} />
-            <SectionMyWorks list={listMyWorks} />
-            <SectionMyEducation list={listMyEducation} />
+            <SectionAbout />
+            <SectionMyWorks list={works} />
+            <SectionMyEducation list={educations} />
         </>
     );
 }

@@ -4,6 +4,7 @@ import Router from "./routes/router";
 import { useTheme } from "./hooks/use-theme";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./GlobalStyles";
+import { PortfolioDataProvider } from "./providers/portfolio-data-provider";
 
 const App = () => {
     const { getTheme } = useTheme();
@@ -11,8 +12,10 @@ const App = () => {
     return (
         <CookiesProvider>
             <ThemeProvider theme={() => getTheme()}>
-                <GlobalStyles />
-                <RouterProvider router={Router} />
+                <PortfolioDataProvider>
+                    <GlobalStyles />
+                    <RouterProvider router={Router} />
+                </PortfolioDataProvider>
             </ThemeProvider>
         </CookiesProvider>
     );

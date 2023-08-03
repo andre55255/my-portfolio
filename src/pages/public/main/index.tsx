@@ -13,8 +13,28 @@ import {
 } from "react-icons/fa";
 import { TbSql, TbBrandCSharp, TbBrandTypescript } from "react-icons/tb";
 import { ProjectListItem } from "../../../types/project-list-item";
+import { GetProjects, parsedObjectProjectReturn } from "../../../services/projects/get-projects-data";
+import { useEffect, useState } from "react";
 
 export default function MainPage() {
+    const [projects, setProjects] = useState<ProjectListItem[]>([]);
+
+    const handleFetch = async () => {
+        const [resultProjects] = await Promise.all([GetProjects()]);
+
+        if (resultProjects.success && resultProjects.object) {
+            const parseObj = parsedObjectProjectReturn(resultProjects.object);
+            setProjects(parseObj!!);
+        }
+        else {
+            alert(resultProjects.message);
+        }
+    };
+
+    useEffect(() => {
+        handleFetch();
+    }, []);
+
     const listStacks: StackListItem[] = [
         {
             link: "#",
@@ -78,62 +98,16 @@ export default function MainPage() {
         },
     ];
 
-    const listProjects: ProjectListItem[] = [
-        {
-            linkImg: "https://avatars.githubusercontent.com/u/77760155?v=4",
-            title: "Projeto de teste",
-            description:
-                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-            techs: ["C#, Javascript, Css, Html"],
-            linkPreview: "https://google.com.br",
-            linkViewCode: "https://github.com",
-        },
-        {
-            linkImg: "https://avatars.githubusercontent.com/u/77760155?v=4",
-            title: "Projeto de teste",
-            description:
-                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-            techs: ["C#, Javascript, Css, Html"],
-            linkPreview: "https://google.com.br",
-            linkViewCode: "https://github.com",
-        },
-        {
-            linkImg: "https://avatars.githubusercontent.com/u/77760155?v=4",
-            title: "Projeto de teste",
-            description:
-                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-            techs: ["C#, Javascript, Css, Html"],
-            linkPreview: "https://google.com.br",
-            linkViewCode: "https://github.com",
-        },
-        {
-            linkImg: "https://avatars.githubusercontent.com/u/77760155?v=4",
-            title: "Projeto de teste",
-            description:
-                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-            techs: ["C#, Javascript, Css, Html"],
-            linkPreview: "https://google.com.br",
-            linkViewCode: "https://github.com",
-        },
-        {
-            linkImg: "https://avatars.githubusercontent.com/u/77760155?v=4",
-            title: "Projeto de teste",
-            description:
-                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-            techs: ["C#, Javascript, Css, Html"],
-            linkPreview: "https://google.com.br",
-            linkViewCode: "https://github.com",
-        },
-    ];
-
-    const numberItemsPerPage = 3;
+    const numberItemsPerPage = process.env.REACT_APP_NUMBER_PROJECTS_PER_PAGE
+        ? Number(process.env.REACT_APP_NUMBER_PROJECTS_PER_PAGE)
+        : 3;
 
     return (
         <>
             <SectionHome />
             <SectionStacks list={listStacks} />
             <SectionProjects
-                list={listProjects}
+                list={projects}
                 numberItemsPerPage={numberItemsPerPage}
             />
         </>

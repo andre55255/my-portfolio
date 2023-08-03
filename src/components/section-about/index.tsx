@@ -1,14 +1,14 @@
+import { PortfolioDataContext } from "../../providers/portfolio-data-provider";
 import { ContainerAbout, DescriptionAbout, TitleAbout } from "./styled";
+import { useContext } from "react";
 
-interface SectionAboutProps {
-    description: string;
-}
+export default function SectionAbout() {
+    const { data } = useContext(PortfolioDataContext);
 
-export default function SectionAbout({ description }: SectionAboutProps) {
     return (
         <ContainerAbout>
             <TitleAbout>Sobre Mim</TitleAbout>
-            <DescriptionAbout>{description}</DescriptionAbout>
+            <DescriptionAbout>{data?.aboutMe}</DescriptionAbout>
         </ContainerAbout>
     )
 }
