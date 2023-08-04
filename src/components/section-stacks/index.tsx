@@ -10,7 +10,7 @@ interface AuxPropsSectionStacks {
 
 export default function SectionStacks({ list }: AuxPropsSectionStacks) {
     return (
-        <ContainerSectionStacks id={routesAnchor.stacks}>
+        <ContainerSectionStacks id={routesAnchor.stacks.id}>
             <h2>Minhas stacks</h2>
             <p>Tecnologias que eu trabalho frequentemente</p>
             <ListStacks>

@@ -42,7 +42,7 @@ export default function SectionProjects({
 
     return (
         <>
-            <ContainerSectionStacks id={routesAnchor.projects}>
+            <ContainerSectionStacks id={routesAnchor.projects.id}>
                 <h2>Projetos</h2>
                 <p>Coisas que já fiz até agora</p>
                 <ListStacks>

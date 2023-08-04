@@ -5,10 +5,10 @@ import MenuStyled from "./styled";
 export default function Menu() {
     return (
         <MenuStyled>
-            <MenuItem anchor={routesAnchor.home}>Home</MenuItem>
+            <MenuItem anchor={`${routesAnchor.home.url}#${routesAnchor.home.id}`}>Home</MenuItem>
+            <MenuItem anchor={`${routesAnchor.stacks.url}#${routesAnchor.stacks.id}`}>Stacks</MenuItem>
+            <MenuItem anchor={`${routesAnchor.projects.url}#${routesAnchor.projects.id}`}>Projetos</MenuItem>
             <MenuItem route={routesPages.about}>Sobre</MenuItem>
-            <MenuItem anchor={routesAnchor.stacks}>Stacks</MenuItem>
-            <MenuItem anchor={routesAnchor.projects}>Projetos</MenuItem>
             <MenuItem route={routesPages.contact}>Contato</MenuItem>
         </MenuStyled>
     );

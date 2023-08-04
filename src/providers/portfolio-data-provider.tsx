@@ -1,11 +1,7 @@
-import {
-    createContext,
-    ReactNode,
-    useState,
-    useEffect,
-} from "react";
+import { createContext, ReactNode, useState, useEffect } from "react";
 import { PortfolioData } from "../types/portfolio-service";
 import { GetPortfolioData } from "../services/portfolio/get-portfolio-data";
+import { showToastError, showToastSuccess } from "../helpers/toast-utils";
 
 type PortfolioDataContextProps = {
     data?: PortfolioData;
@@ -27,14 +23,15 @@ export const PortfolioDataProvider = ({ children }: AuthProviderProps) => {
         GetPortfolioData()
             .then((data) => {
                 if (!data.success) {
-                    alert(data.message);
+                    showToastError({ message: data.message });
                     return;
                 }
-                console.log(data.object);
                 setPortfolioData(data.object);
             })
             .catch((err) =>
-                alert("Erro na requisição de get portfolio: " + err)
+                showToastError({
+                    message: `Erro na requisição de pegar dados de portfolio`,
+                })
             );
     }, []);
 

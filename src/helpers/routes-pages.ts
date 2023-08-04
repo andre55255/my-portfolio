@@ -5,7 +5,16 @@ export const routesPages = {
 };
 
 export const routesAnchor = {
-    home: "/#home",
-    stacks: "/#stacks",
-    projects: "/#projects"
+    home: {
+        id: "home",
+        url: "/"
+    },
+    stacks: {
+        id: "stacks",
+        url: "/"
+    },
+    projects: {
+        id: "projects",
+        url: "/"
+    }
 }

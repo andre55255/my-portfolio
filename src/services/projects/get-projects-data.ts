@@ -1,4 +1,5 @@
 import { endpointsApi } from "../../helpers/endpoints-api";
+import { showToastError } from "../../helpers/toast-utils";
 import { APIResponse } from "../../types/api-response";
 import { ProjectListItem } from "../../types/project-list-item";
 import { ProjectType } from "../../types/projects-service";
@@ -36,7 +37,7 @@ export const parsedObjectProjectReturn = (data: ProjectType[]): ProjectListItem[
         });
         return parseObj;
     } catch (err) {
-        console.log("Falha na conversão de dados" + err);
+        showToastError({ message: "Falha na conversão de retorno de projetos" });
         return [];
     }
 }

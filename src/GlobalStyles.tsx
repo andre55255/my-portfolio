@@ -14,7 +14,8 @@ export const GlobalStyles = createGlobalStyle`
 
     /* Estiliza o polegar da barra de rolagem */
     ::-webkit-scrollbar-thumb {
-        background-color: ${props => props.theme.primaryColor}; /* Cor do polegar da barra de rolagem */
+        background-color: ${(props) =>
+            props.theme.primaryColor}; /* Cor do polegar da barra de rolagem */
         border-radius: .2rem; /* Borda arredondada do polegar */
     }
 
@@ -52,6 +53,10 @@ export const GlobalStyles = createGlobalStyle`
 
     *, *::before, *::after {
         box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
     }
 
     body {

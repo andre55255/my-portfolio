@@ -1,6 +1,7 @@
 import SectionAbout from "../../../components/section-about";
 import SectionMyEducation from "../../../components/section-my-education";
 import SectionMyWorks from "../../../components/section-my-works";
+import { showToastError } from "../../../helpers/toast-utils";
 import { GetExperiencesEducation, parsedObjectEducationReturn } from "../../../services/experiences-education/get-experiences-education-data";
 import { GetExperiencesWork, parsedObjectWorkReturn } from "../../../services/experiences-work/get-experiences-work-data";
 import { MyWorksListItem } from "../../../types/my-works-list-item";
@@ -21,7 +22,7 @@ export default function AboutPage() {
             setWorks(parseObj);
         }
         else {
-            alert(resultExperienceWorks.message);
+            showToastError({ message: resultExperienceWorks.message });
         }
 
         if (resultExperienceEducation.success && resultExperienceEducation.object) {
@@ -29,7 +30,7 @@ export default function AboutPage() {
             setEducations(parseObj);
         }
         else {
-            alert(resultExperienceEducation.message);
+            showToastError({ message: resultExperienceEducation.message });
         }
     };
 

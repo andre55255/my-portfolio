@@ -6,6 +6,9 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./GlobalStyles";
 import { PortfolioDataProvider } from "./providers/portfolio-data-provider";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const App = () => {
     const { getTheme } = useTheme();
 
@@ -14,6 +17,15 @@ const App = () => {
             <ThemeProvider theme={() => getTheme()}>
                 <PortfolioDataProvider>
                     <GlobalStyles />
+                    <ToastContainer
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        closeOnClick
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        theme="light"
+                    />
                     <RouterProvider router={Router} />
                 </PortfolioDataProvider>
             </ThemeProvider>

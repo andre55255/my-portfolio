@@ -5,9 +5,8 @@ export const SpinnerContainer = styled.div<StyledComponentProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1rem;
   margin-right: 4rem;
-  height: 50px;
+  height: 60px;
 `;
 
 const spinAnimation = keyframes`

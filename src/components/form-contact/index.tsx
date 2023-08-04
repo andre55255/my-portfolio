@@ -7,6 +7,8 @@ import { FormContactSchema } from "../../yup-config/form-contact-schema";
 import ButtonSubmit from "../form/button-submit";
 import Loading from "../loading";
 import { convertToBase64 } from "../../helpers/function-utils";
+import { MAX_SIZE_FILE_UPLOAD_IN_BYTES } from "../../helpers/constants";
+import { showToastError } from "../../helpers/toast-utils";
 
 type FormContactProps = {
     isFetching: boolean;
@@ -38,6 +40,12 @@ export default function FormContact({
         setFieldValue: Function
     ) => {
         const file = event.target.files?.[0];
+        if (file && file.size > MAX_SIZE_FILE_UPLOAD_IN_BYTES) {
+            showToastError({
+                message: "O arquivo enviado não pode ultrapassar 30mb",
+            });
+            return;
+        }
         if (file) {
             const base64 = await convertToBase64(file);
             setFieldValue("file", base64);
@@ -90,7 +98,9 @@ export default function FormContact({
                 label="Contato"
                 name="file"
                 type="file"
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleFileChange(e, formik.setFieldValue)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    handleFileChange(e, formik.setFieldValue)
+                }
                 value={formik.values.fileAttachment}
                 isInvalid={
                     formik.touched.fileAttachment &&

@@ -1,5 +1,6 @@
 import { endpointsApi } from "../../helpers/endpoints-api";
 import { formatDate } from "../../helpers/function-utils";
+import { showToastError } from "../../helpers/toast-utils";
 import { APIResponse } from "../../types/api-response";
 import { ExperienceWorkType } from "../../types/experiences-work-service";
 import { MyWorksListItem } from "../../types/my-works-list-item";
@@ -37,7 +38,7 @@ export const parsedObjectWorkReturn = (data: ExperienceWorkType[]): MyWorksListI
         });
         return parseObj;
     } catch (err) {
-        console.log("Falha na conversão de dados" + err);
+        showToastError({ message: "Falha na conversão de dados de minhas experiências profissionais" });
         return [];
     }
 }

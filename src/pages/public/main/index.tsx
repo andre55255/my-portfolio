@@ -3,31 +3,39 @@ import SectionProjects from "../../../components/section-projects";
 import SectionStacks from "../../../components/section-stacks";
 import { StackListItem } from "../../../types/stacks-list-item";
 import { ProjectListItem } from "../../../types/project-list-item";
-import { GetProjects, parsedObjectProjectReturn } from "../../../services/projects/get-projects-data";
+import {
+    GetProjects,
+    parsedObjectProjectReturn,
+} from "../../../services/projects/get-projects-data";
 import { useEffect, useState } from "react";
-import { GetStacks, parsedObjectStackReturn } from "../../../services/stacks/get-stacks-data";
+import {
+    GetStacks,
+    parsedObjectStackReturn,
+} from "../../../services/stacks/get-stacks-data";
+import { showToastError } from "../../../helpers/toast-utils";
 
 export default function MainPage() {
     const [projects, setProjects] = useState<ProjectListItem[]>([]);
     const [stacks, setStacks] = useState<StackListItem[]>([]);
 
     const handleFetch = async () => {
-        const [resultProjects, resultStacks] = await Promise.all([GetProjects(), GetStacks()]);
+        const [resultProjects, resultStacks] = await Promise.all([
+            GetProjects(),
+            GetStacks(),
+        ]);
 
         if (resultProjects.success && resultProjects.object) {
             const parseObj = parsedObjectProjectReturn(resultProjects.object);
             setProjects(parseObj!!);
-        }
-        else {
-            alert(resultProjects.message);
+        } else {
+            showToastError({ message: resultProjects.message });
         }
 
         if (resultStacks.success && resultStacks.object) {
             const parseObj = parsedObjectStackReturn(resultStacks.object);
             setStacks(parseObj);
-        }
-        else {
-            alert(resultStacks.message);
+        } else {
+            showToastError({ message: resultStacks.message });
         }
     };
 

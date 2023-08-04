@@ -10,7 +10,7 @@ export default function Home() {
     const { data } = useContext(PortfolioDataContext);
     
     return (
-        <ContainerSectionHome id={routesAnchor.home}>
+        <ContainerSectionHome id={routesAnchor.home.id}>
             <ImageContainer>
                 <ImageProfile src={data?.profileImage.fileBase64} alt="foto de perfil" />
             </ImageContainer>
