@@ -13,5 +13,6 @@ export type StyledComponentProps = {
         colorLabelFormContact: string;
         colorInputFormContact: string;
         colorTextInputFormContact: string;
+        loadingSpinner: string;
     };
 };

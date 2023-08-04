@@ -23,7 +23,7 @@ const StackItem = styled.li<StackItemProps>`
     }
 
     img {
-        width: 8rem;
+        width: 6rem;
     }
     
     svg {

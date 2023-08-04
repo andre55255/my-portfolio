@@ -17,6 +17,8 @@ export const lightTheme = {
     colorLabelFormContact: "#093E70", // Cor do label do formulário de contato
     colorInputFormContact: "#C1D2E7", // Cor do input do formulário do contato
     colorTextInputFormContact: "#1a1a1a", // Cor das letras do input do formulário de contato
+
+    loadingSpinner: "#1C5D99" // Cor do loading spinner 
 };
 
 export const darkTheme = {
@@ -38,4 +40,6 @@ export const darkTheme = {
     colorLabelFormContact: "#6B6D76", // Cor do label do formulário de contato
     colorInputFormContact: "#2c2c2c", // Cor do input do formulário do contato
     colorTextInputFormContact: "#6B6D76", // Cor das letras do input do formulário de contato
+
+    loadingSpinner: "#6B6D76" // Cor do loading spinner 
 };

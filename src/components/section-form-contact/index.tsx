@@ -1,19 +1,27 @@
+import { SubmitFormContactData } from "../../services/form-contact-data/submit-form-contact-data";
+import { FormContactDataType } from "../../types/form-contact-data";
+import FormContact from "../form-contact";
 import { ContainerAbout, TitleAbout } from "../section-about/styled";
-import { ButtonSectionContact, FormSectionContact, InputSectionContact, LabelSectionContact } from "./styled";
+import { useState } from "react";
 
 export default function SectionFormContact() {
+    const [isFetching, setIsFetching] = useState<boolean>(false);
+
+    const handleSubmit = async (data: FormContactDataType) => {
+        setIsFetching(true);
+        const result = await SubmitFormContactData(data);
+        if (result.success) {
+            alert(result.message);
+        } else {
+            alert(result.message);
+        }
+        setIsFetching(false);
+    };
+
     return (
         <ContainerAbout>
             <TitleAbout>Entre em contato</TitleAbout>
-            <FormSectionContact>
-                <LabelSectionContact htmlFor="name">Nome</LabelSectionContact>
-                <InputSectionContact id="name" name="name" type="text" />
-                <LabelSectionContact htmlFor="contact">Contato</LabelSectionContact>
-                <InputSectionContact id="contact" name="contact" type="text" />
-                <LabelSectionContact htmlFor="file">Anexo (opcional)</LabelSectionContact>
-                <InputSectionContact id="file" name="file" type="file" />
-                <ButtonSectionContact>Enviar</ButtonSectionContact>
-            </FormSectionContact>
+            <FormContact handleSubmit={handleSubmit} isFetching={isFetching} />
         </ContainerAbout>
     );
 }
