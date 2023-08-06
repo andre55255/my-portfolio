@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useState, useEffect } from "react";
 import { PortfolioData } from "../types/portfolio-service";
 import { GetPortfolioData } from "../services/portfolio/get-portfolio-data";
-import { showToastError, showToastSuccess } from "../helpers/toast-utils";
+import { showToastError } from "../helpers/toast-utils";
 
 type PortfolioDataContextProps = {
     data?: PortfolioData;

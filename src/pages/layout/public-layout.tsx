@@ -13,9 +13,9 @@ export default function PublicLayout({ children }: AuxProps) {
             <header>
                 <Navbar />
             </header>
-            <body>
+            <main>
                 {children}
-            </body>
+            </main>
             <footer>
                 <Footer />
             </footer>
