@@ -21,8 +21,8 @@ export default function DrawerContent({ toggleDrawer }: AuxPropsDrawerContent) {
                 <FaRegWindowClose onClick={toggleDrawer} />
             </HeaderMenuDrawer>
             <MenuItem anchor={routesAnchor.home.url}>Home</MenuItem>
-            <MenuItem anchor={routesAnchor.stacks.url}>Stacks</MenuItem>
-            <MenuItem anchor={routesAnchor.projects.url}>Projetos</MenuItem>
+            {/* <MenuItem anchor={routesAnchor.stacks.url}>Stacks</MenuItem>
+            <MenuItem anchor={routesAnchor.projects.url}>Projetos</MenuItem> */}
             <MenuItem route={routesPages.about}>Sobre</MenuItem>
             <MenuItem route={routesPages.contact}>Contato</MenuItem>
             <SocialIconsContainer>
